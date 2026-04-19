@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Naotica – Personal Website</title>
+    <meta
+      name="description"
+      content="My name is Naotica aka Rashya Adithiya"
+    />
+
+    <link rel="icon" type="image/png" href="/icon/32x32.png" />
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover"
+    />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon/180x180.png" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-title"
+      content="Naotica – Personal Website"
+    />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="theme-color" content="#f6d4b1" />
+
+    <meta property="og:title" content="Naotica – Personal Website" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://naotica.me/" />
+    <meta
+      name="og:description"
+      content="My name is Naotica aka Rashya Adithiya"
+    />
+    <link rel="manifest" href="/manifest.json" />
+    <script type="module" src="/src/main.ts"></script>
+  </head>
+
+  <body>
+    <div id="home"></div>
+
+    <canvas class="webgl"></canvas>
+
+    <div id="hero-backup">
+      <h3>Hi there, I’m</h3>
+      <h1>Naotica</h1>
+      <ul>
+        <li>Software Engineer</li>
+        <li>Freelancer</li>
+      </ul>
+    </div>
+
+    <nav>
+      <div class="menu-btn">
+        <button class="btn" onclick="toggleMenu()">
+          <svg width="16" height="16">
+            <rect class="st0" width="16" height="3.2" />
+            <rect y="6.4" class="st0" width="16" height="3.2" />
+            <rect y="12.8" class="st0" width="16" height="3.2" />
+          </svg>
+        </button>
+<div style="display: flex">
+  <a
+    class="btn"
+    href="https://instagram.com/for_evershya10"
+    target="_blank"
+  >
+    <svg width="16" height="16" viewBox="0 0 24 24">
+      <path
+        d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm5 5.2A4.8 4.8 0 1 1 7.2 12 4.8 4.8 0 0 1 12 7.2zm0 1.8A3 3 0 1 0 15 12a3 3 0 0 0-3-3zm5.2-2.3a1.1 1.1 0 1 1-1.1-1.1 1.1 1.1 0 0 1 1.1 1.1z"
+      />
+    </svg>
+  </a>
+<a class="btn" href="mailto:rashyaygmi@gmail.com">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M20 6H4l8 7 8-7zm0 2.2l-8 7-8-7V18h16V8.2z"/>
+  </svg>
+</a>
+  <a
+    class="btn"
+    href="https://github.com/Naotica2"
+    target="_blank"
+  >
+    <svg width="16" height="16" viewBox="0 0 16 16">
+      <path
+        d="M8 0C3.6 0 0 3.6 0 8c0 3.5 2.3 6.4 5.5 7.4.4.1.5-.2.5-.4v-1.5c-2.2.5-2.7-1-2.7-1-.4-1-.9-1.3-.9-1.3-.8-.5.1-.5.1-.5.9.1 1.4.9 1.4.9.8 1.3 2.1.9 2.6.7.1-.6.3-.9.5-1.1-1.8-.2-3.7-.9-3.7-4 0-.9.3-1.6.9-2.2-.1-.2-.4-1 .1-2.1 0 0 .7-.2 2.3.9a7.8 7.8 0 0 1 4.2 0c1.6-1.1 2.3-.9 2.3-.9.5 1.1.2 1.9.1 2.1.6.6.9 1.3.9 2.2 0 3.1-1.9 3.8-3.7 4 .3.3.6.8.6 1.6v2.3c0 .2.1.5.5.4C13.7 14.4 16 11.5 16 8c0-4.4-3.6-8-8-8z"
+      />
+    </svg>
+  </a>
+</div>
+      </div>
+
+      <div class="menu-body" onclick="closeMenu()">
+        <a href="#home" onclick="closeMenu()">Home</a>
+        <a href="#aboutMe" onclick="closeMenu()">About</a>
+        <a href="#journey" onclick="closeMenu()">Journey</a>
+        <a href="#projects" onclick="closeMenu()">Projects</a>
+        <a href="#contact" onclick="closeMenu()">Contact</a>
+      </div>
+
+      <div id="tip-scroll">Scroll &#8595;</div>
+    </nav>
+
+    <main>
+      <section>
+        <h1 id="aboutMe">Hi there</h1>
+        <p>
+          My name is Naotica aka Rashya Adithiya, I’m an award-winning web dev / digital
+          designer and full stack software engineer. I have a passion for all
+          things technology and design, from software engineering & machine
+          learning to UI/UX & 3D graphics.
+        </p>
+        <p>
+          In addition to my love of technology and gaming, I am also interested
+          in education, history, economics and politics.
+        </p>
+
+        <p>
+          Below are details of some of the projects I have developed over my
+          three plus years of coding experience.
+        </p>
+      </section>
+
+      <section>
+        <h1 id="journey">Journey</h1>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">2023-2024</div>
+            <div class="timeline-content">
+              <h2>Started Coding Journey</h2>
+              <p>Began learning programming and web development. Explored HTML, CSS, JavaScript and PHP, then fell in love with building things on the web.</p>
+            </div>
+          </div>  
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">2025</div>
+            <div class="timeline-content">
+              <h2>Learning Framework javascript</h2>
+              <p>Learned modern JavaScript frameworks like React and Next.js. Started exploring backend and databases, and began building more complete web applications.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">2025</div>
+            <div class="timeline-content">
+              <h2>Spear – Web Dev Edu</h2>
+              <p>Developed Spear, an interactive web development learning platform using Next.js, TypeScript, and Tailwind CSS. Submitted to a competition.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">2025-2026</div>
+            <div class="timeline-content">
+              <h2>Built NaoFlix & Naotica.me</h2>
+              <p>Built NaoFlix, an anime streaming app with React Native, and launched my personal portfolio website naotica.me with Three.js and WebGL.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">Now</div>
+            <div class="timeline-content">
+              <h2>No Job</h2>
+              <p>pliss hire me *speed reaction</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h1 id="projects">Projects</h1>
+        <hr />
+        <h2>NaoFlix</h2>
+        <h3>2026</h3>
+        <ul class="skills">
+          <li>React Native</li>
+          <li>TypeScript</li>
+          <li>postgreSQL</li>
+          <li>APK</li>
+        </ul>
+        <p>
+          Naoflix is an anime streaming app, but it offers more than just anime. The Naoflix app also provides movie streaming and comics that can be read for free. Of course, Naoflix is simply a learning project that I’ve published, and the data on Naoflix is managed by a third-party server, so Naoflix is merely a frontend for that data.
+        </p>
+        <p><a href="https://naoflix.my.id">Download NaoFlix.apk</a></p>
+        <br />
+        <div class="image">
+          <img
+            src="/src/img/naoflixdnwld.webp"
+            width="100%"
+            alt="naoflix ss"
+            loading="lazy"
+            style="aspect-ratio: 2443 / 1400"
+          />
+        </div>
+        <p><a href="https://greenpedia.vercel.app">Greenpedia website</a></p>
+        <hr />
+
+        <h2>Spear</h2>
+        <h3>2025-2026</h3>
+        <ul class="skills">
+          <li>Next.js</li>
+          <li>TypeScript</li>
+          <li>Tailwind CSS</li>
+          <li>postgreSQL</li>
+          <li>Web Dev</li>
+        </ul>
+        <p>
+         Spear is a project I submitted to a competition. It’s a website designed to teach web development in an interactive way. Even though I didn’t end up winning, it was a great learning experience for me in the world of programming.
+        </p>
+        <p><a href="https://spear-coder.vercel.app">Spear Website</a></p>
+        <div class="image">
+          <img
+            src="/src/img/spear.webp"
+            width="100%"
+            alt="spear ss"
+            loading="lazy"
+            style="aspect-ratio: 2443 / 1400"
+          />
+        </div>
+        <hr />
+        <h2>Pokemon TCG</h2>
+        <h3>2025</h3>
+        <ul class="skills">
+          <li>Vite</li>
+          <li>TypeScript</li>
+          <li>Tailwind CSS</li>
+          <li>Phaser.js</li>
+          <li>Web Dev</li>
+        </ul>
+        <p> 
+         The Pokémon TCG website is a web-based game where you can collect Pokémon cards through a gacha system. This website is completely free—there are no fees or in-app purchases. I created this website because I didn’t have the money to buy Pokémon TCG cards in the real life. I found the API source for this website on GitHub, but I’ve forgotten the link. 
+        </p>
+        <p><a href="https://poketcg.naotica.studio">My Pokemon TCG Website</a></p>
+
+        <br />
+        <hr />
+
+        <h2>Naotica.me</h2>
+        <h3>2026</h3>
+        <ul class="skills">
+          <li>Vite</li>
+          <li>TypeScript</li>
+          <li>Three.js</li>
+          <li>web Dev</li>
+        </ul>
+        <p>
+         
+        </p>
+        <p>
+         Naotica.me is my personal website and portfolio where I share my projects, ideas, and learning journey in technology. The website, available at naotica.me, is a place to explore what I build and learn, especially in programming and development.
+         Naotica is also my personal brand. My real name is Rashya Adithiya, and I use Naotica as my identity across my work and projects.
+        </p>
+          <p><a href="https://naotica.me">naotica.me ( this website )</a></p>
+
+        <hr />
+
+        <h2>Greenpedia</h2>
+        <h3>2025</h3>
+        <ul class="skills">
+          <li>Html</li>
+          <li>Tailwind CSS</li>
+          <li>JavaScript</li>
+          <li>Web Dev</li>
+        </ul>
+        <p>
+          Greenpedia is the website I submitted for the competition. The Greenpedia website focuses on environmental education, including how to protect the environment and articles on proper waste disposal based on waste type. Although, in the end, my team and I were unable to win the competition.
+        </p>
+         <div class="image">
+          <img
+            src="/src/img/greenpedia.webp"
+            width="100%"
+            alt="greenpedia ss"
+            loading="lazy"
+            style="aspect-ratio: 2443 / 1400"
+          />
+        </div>
+        <hr />
+
+      </section>
+
+      <section>
+        <h1 id="contact">Contact</h1>
+        <p style="text-align: center">
+          Reach out on
+          <a href="mailto:rashyaygmi@gmail.com"
+            ><u><b>Gmail</b></u></a
+          >
+        </p>
+      </section>
+    </main>
+
+    <input type="text" id="textarea" readonly />
+    <div id="loading">
+      <h2>Booting...</h2>
+      <div id="loading-bar">
+        <div id="loading-bar-progress"></div>
+      </div>
+      <div id="loading-items">Starting...</div>
+    </div>
+    <footer>
+      <div>Developed + Designed by Naotica.</div>
+      <div>Computer design based on the Commodore PET 8296.</div>
+      <div>COPYRIGHT © 2026 Naotica.</div>
+    </footer>
+    <script>
+      function closeMenu() {
+        document.getElementsByTagName("nav")[0].classList.remove(["active"]);
+      }
+
+      function toggleMenu() {
+        const nav = document.getElementsByTagName("nav")[0];
+        if (nav.classList.contains("active")) {
+          nav.classList.remove(["active"]);
+        } else {
+          nav.classList.add("active");
+        }
+      }
+    </script>
+    <script
+      fetchpriority="high"
+      src="https://cdn-ts.netlify.app/webgl-helper@3.0.11/webgl-helper.min.js"
+    ></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-EDNKHGV4HB"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-EDNKHGV4HB");
+      gtag("event", "origin", { name: window.origin });
+    </script>
+  </body>
+</html>
