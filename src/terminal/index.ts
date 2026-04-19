@@ -110,35 +110,53 @@ export default function Terminal(screenTextEngine: {
     }
   });
 
-  let touchStartY = 0;
-  canvas.addEventListener("touchstart", (e) => {
-    if (document.activeElement === textarea) {
-      touchStartY = e.touches[0].clientY;
-    }
-  }, { passive: false });
+  const mobileControls = document.createElement("div");
+  mobileControls.style.position = "fixed";
+  mobileControls.style.top = "100px";
+  mobileControls.style.right = "20px";
+  mobileControls.style.zIndex = "10";
+  mobileControls.style.display = "none";
+  mobileControls.style.flexDirection = "column";
+  mobileControls.style.gap = "10px";
+  
+  if (window.matchMedia("(pointer: coarse)").matches) {
+    document.body.appendChild(mobileControls);
+    textarea.addEventListener("focus", () => {
+      mobileControls.style.display = "flex";
+    });
+    textarea.addEventListener("blur", () => {
+      setTimeout(() => {
+        mobileControls.style.display = "none";
+      }, 150);
+    });
+  }
 
-  canvas.addEventListener("touchmove", (e) => {
-    if (document.activeElement === textarea) {
-      e.preventDefault();
-      const touchY = e.touches[0].clientY;
-      const diff = touchY - touchStartY;
-      
-      if (Math.abs(diff) > 20) {
-        if (diff > 0) {
-          screenTextEngine.scroll(-1, "lines", {
-            moveView: true,
-            updateMaxScroll: false,
-          });
-        } else {
-          screenTextEngine.scroll(1, "lines", {
-            moveView: true,
-            updateMaxScroll: false,
-          });
-        }
-        touchStartY = touchY;
-      }
-    }
-  }, { passive: false });
+  const upBtn = document.createElement("button");
+  upBtn.innerHTML = "▲";
+  upBtn.className = "btn";
+  upBtn.style.padding = "10px 15px";
+  upBtn.style.fontSize = "20px";
+  
+  const downBtn = document.createElement("button");
+  downBtn.innerHTML = "▼";
+  downBtn.className = "btn";
+  downBtn.style.padding = "10px 15px";
+  downBtn.style.fontSize = "20px";
+
+  mobileControls.appendChild(upBtn);
+  mobileControls.appendChild(downBtn);
+
+  upBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    screenTextEngine.scroll(-1, "lines", { moveView: true, updateMaxScroll: false });
+    textarea.focus();
+  });
+
+  downBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    screenTextEngine.scroll(1, "lines", { moveView: true, updateMaxScroll: false });
+    textarea.focus();
+  });
 
   let lastSelection = 0;
   document.addEventListener("selectionchange", () => {
