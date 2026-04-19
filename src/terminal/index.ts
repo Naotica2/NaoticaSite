@@ -110,6 +110,36 @@ export default function Terminal(screenTextEngine: {
     }
   });
 
+  let touchStartY = 0;
+  canvas.addEventListener("touchstart", (e) => {
+    if (document.activeElement === textarea) {
+      touchStartY = e.touches[0].clientY;
+    }
+  }, { passive: false });
+
+  canvas.addEventListener("touchmove", (e) => {
+    if (document.activeElement === textarea) {
+      e.preventDefault();
+      const touchY = e.touches[0].clientY;
+      const diff = touchY - touchStartY;
+      
+      if (Math.abs(diff) > 20) {
+        if (diff > 0) {
+          screenTextEngine.scroll(-1, "lines", {
+            moveView: true,
+            updateMaxScroll: false,
+          });
+        } else {
+          screenTextEngine.scroll(1, "lines", {
+            moveView: true,
+            updateMaxScroll: false,
+          });
+        }
+        touchStartY = touchY;
+      }
+    }
+  }, { passive: false });
+
   let lastSelection = 0;
   document.addEventListener("selectionchange", () => {
     if (textarea.selectionStart !== textarea.selectionEnd)
