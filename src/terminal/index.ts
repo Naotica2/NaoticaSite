@@ -119,13 +119,15 @@ export default function Terminal(screenTextEngine: {
   mobileControls.style.flexDirection = "column";
   mobileControls.style.gap = "10px";
   
+  let blurTimeout: any;
   if (window.matchMedia("(pointer: coarse)").matches) {
     document.body.appendChild(mobileControls);
     textarea.addEventListener("focus", () => {
+      clearTimeout(blurTimeout);
       mobileControls.style.display = "flex";
     });
     textarea.addEventListener("blur", () => {
-      setTimeout(() => {
+      blurTimeout = setTimeout(() => {
         mobileControls.style.display = "none";
       }, 150);
     });
@@ -146,13 +148,14 @@ export default function Terminal(screenTextEngine: {
   mobileControls.appendChild(upBtn);
   mobileControls.appendChild(downBtn);
 
-  upBtn.addEventListener("click", (e) => {
+  // Prevent focus loss and handle scroll immediately on touch
+  upBtn.addEventListener("touchstart", (e) => {
     e.preventDefault();
     screenTextEngine.scroll(-1, "lines", { moveView: true, updateMaxScroll: false });
     textarea.focus();
   });
 
-  downBtn.addEventListener("click", (e) => {
+  downBtn.addEventListener("touchstart", (e) => {
     e.preventDefault();
     screenTextEngine.scroll(1, "lines", { moveView: true, updateMaxScroll: false });
     textarea.focus();
