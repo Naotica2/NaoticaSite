@@ -145,8 +145,15 @@ export default function Terminal(screenTextEngine: {
   downBtn.style.padding = "10px 15px";
   downBtn.style.fontSize = "20px";
 
+  const closeBtn = document.createElement("button");
+  closeBtn.innerHTML = "✖";
+  closeBtn.className = "btn";
+  closeBtn.style.padding = "10px 15px";
+  closeBtn.style.fontSize = "16px";
+
   mobileControls.appendChild(upBtn);
   mobileControls.appendChild(downBtn);
+  mobileControls.appendChild(closeBtn);
 
   // Prevent focus loss and handle scroll immediately on touch
   upBtn.addEventListener("touchstart", (e) => {
@@ -160,6 +167,26 @@ export default function Terminal(screenTextEngine: {
     screenTextEngine.scroll(1, "lines", { moveView: true, updateMaxScroll: false });
     textarea.focus();
   });
+
+  closeBtn.addEventListener("touchstart", (e) => {
+    e.preventDefault();
+    textarea.blur();
+  });
+
+  window.addEventListener("scroll", () => {
+    if (document.activeElement === textarea) {
+      textarea.blur();
+    }
+  }, { passive: true });
+
+  document.addEventListener("touchstart", (e) => {
+    if (document.activeElement === textarea) {
+      const target = e.target as Node;
+      if (target !== canvas && !mobileControls.contains(target)) {
+        textarea.blur();
+      }
+    }
+  }, { passive: true });
 
   let lastSelection = 0;
   document.addEventListener("selectionchange", () => {
